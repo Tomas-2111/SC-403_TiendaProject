@@ -9,6 +9,10 @@ package com.tienda.domain;
  *
  * @author Tomás Alfaro
  */
+import jakarta.persistence.*;
+import java.io.Serializable;
+import lombok.Data;
+
 @Data
 @Entity
 @Table(name="Categoria")
@@ -23,5 +27,13 @@ public class Categoria implements Serializable {
     private String descripcion;
     private String rutaImagen;
     private boolean activo;
+    
+    public Categoria() {
+    }
+
+    public Categoria(String categoria, boolean activo) {
+        this.descripcion = categoria;
+        this.activo = activo;
+    }
 
 }

@@ -9,12 +9,19 @@ package com.tienda.service;
  *
  * @author Tomás Alfaro
  */
-import com.tienda.domain.Categoria<
+
+import com.tienda.domain.Categoria;
 import java.util.List;
 
 public interface CategoriaService {
     //Asigna el metodo para despues implentarlo en el serviceImp
     //Read
     public List<Categoria> getCategorias(boolean activos);
+    
+    public Categoria getCategoria(Categoria);
+    
+    public void save(Categoria categoria);
+    
+    public void delete(Categoria categoria);
 
 }
