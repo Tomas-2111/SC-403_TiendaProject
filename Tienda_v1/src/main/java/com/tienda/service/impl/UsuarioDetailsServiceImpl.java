@@ -32,18 +32,18 @@ UserDetailsService
 
          //Se valida si se recuperó un usuario / sino lanza un error
          if (usuario==null) {
-         throw new UsernameNotFoundException(username);
-    }
+            throw new UsernameNotFoundException(username);
+        }
 
     //Si estamos acá es porque si se recuperó un usuario...
-    session.removeAttribute("usuarioImagen");
-    session.setAttribute("usuarioImagen", usuario.getRutaImagen());
+        session.removeAttribute("usuarioImagen");
+        session.setAttribute("usuarioImagen", usuario.getRutaImagen());
 
-    //Se van a recuperar los roles del usuario y se crean los roles ya como seguridad de Spring
-    var roles = new ArrayList<GrantedAuthority>();
-    for (Rol rol : usuario.getRoles()) {
-    roles.add(new SimpleGrantedAuthority(rol.getNombre()));
-    }
+        //Se van a recuperar los roles del usuario y se crean los roles ya como seguridad de Spring
+        var roles = new ArrayList<GrantedAuthority>();
+        for (Rol rol : usuario.getRoles()) {
+        roles.add(new SimpleGrantedAuthority(rol.getNombre()));
+        }
         //Se retorna un User (de tipo UserDetails)
         return new User(usuario.getUsername(),usuario.getPassword(),roles);
     }
